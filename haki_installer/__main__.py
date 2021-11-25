@@ -28,7 +28,7 @@ def connect (api):
     return heroku_conn
 
 def createApp (connect):
-    appname = "hakiuserbot" + str(time() * 1000)[-4:].replace(".", "") + str(random.randint(0,500))
+    appname = "emiliauserbot" + str(time() * 1000)[-4:].replace(".", "") + str(random.randint(0,500))
     try:
         connect.create_app(name=appname, stack_id_or_name='container', region_id_or_name="eu")
     except requests.exceptions.HTTPError:
@@ -107,13 +107,13 @@ if __name__ == "__main__":
     basarili(LANG['SUCCESS_APP'])
     onemli(LANG['DOWNLOADING'])
 
-    SyperStringKey = "Haki"
+    SyperStringKey = "EmiliaUserBot"
     GiperStringKey = "HerlockDev/"
     InvalidKey = "http://github.com/" 
     str1 = InvalidKey+GiperStringKey+SyperStringKey
 
-    if os.path.isdir("./Haki/"):
-        rm_r("./Haki/")
+    if os.path.isdir("./Emilia/"):
+        rm_r("./Emilia/")
     repo = Repo.clone_from(str1,"./Haki/", branch="master")
     onemli(LANG['DEPLOYING'])
     app = hgit(heroku, repo, appname)
